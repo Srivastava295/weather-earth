@@ -56,19 +56,23 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   // const weatherForecast = useSelector(weatherForecastSelector);
   const dispatch = useDispatch();
 
+  const getCurrentLocationWeather = () => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      setCoordinates({
+        ...coordinates,
+        latitude: latitude,
+        longitude: longitude,
+      });
+      dispatch(
+        actions.setCoords({ lat: latitude, lon: longitude, loading: true }),
+      );
+    });
+  };
+
   useEffect(() => {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const { latitude, longitude } = position.coords;
-        setCoordinates({
-          ...coordinates,
-          latitude: latitude,
-          longitude: longitude,
-        });
-        dispatch(
-          actions.setCoords({ lat: latitude, lon: longitude, loading: true }),
-        );
-      });
+      getCurrentLocationWeather();
     } else {
       console.log('Coordinates not available');
     }
@@ -220,7 +224,10 @@ const Weather: React.FC<IWeatherCardProps> = () => {
               <div className="header">
                 <form onSubmit={handleSearch}>
                   <div className="extras">
-                    <div className="get-location">
+                    <div
+                      className="get-location"
+                      onClick={getCurrentLocationWeather}
+                    >
                       <span className="get-location-button">My Location</span>
                     </div>
                   </div>
