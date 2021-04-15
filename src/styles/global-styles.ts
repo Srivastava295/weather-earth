@@ -1,36 +1,29 @@
 import { createGlobalStyle } from 'styled-components';
-import { StyleConstants } from './StyleConstants';
-/* istanbul ignore next */
+
 export const GlobalStyle = createGlobalStyle`
-  html,
-  body {
-    height: 100%;
-    width: 100%;
-    line-height: 1.5;
-  }
-
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
-  }
-
-  body.fontLoaded {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  :root {
+    --transparent: rgba(255,255,255,0);
+    --color-text: #FFF;
+    --color-text-light: rgba(255,255,255,0.7);
+    --search-button-bg: #15C6BF;
+    --search-button-bg-hover: #14afaa;
+    --content-bg: rgba(170, 170, 170, 0.3);
   }
   
-  p,
-  label {
-    line-height: 1.5em;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  input, select, button {
-    font-family: inherit;
-    font-size: inherit;
+  body, input {
+    font-family: 'Nunito', sans-serif;
   }
-
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
+  
 `;
