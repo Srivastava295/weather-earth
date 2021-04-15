@@ -85,7 +85,6 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
   const handleSearch = event => {
     event.preventDefault();
-    console.log('Place: ', place);
     dispatch(actions.setLoading(true));
     dispatch(actions.setLocation(place));
   };
@@ -378,12 +377,10 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     <div className="weather__forecast__item" key={i}>
                       <div className="weather__forecast__item_container">
                         <h6>{item.day}</h6>
-                        <p>{item.weather.main}</p>
-                        <span>{item.temp.temp_max}</span>
-                        <span>ºC</span>
+                        <p>{item.weather}</p>
+                        <span>{item.temp ? item.temp.temp_max : 'N/A'}ºC</span>
                         <small>/</small>
-                        <span>{item.temp.temp_min}</span>
-                        <span>ºC</span>
+                        <span>{item.temp ? item.temp.temp_min : 'N/A'}ºC</span>
                       </div>
                     </div>
                   );
