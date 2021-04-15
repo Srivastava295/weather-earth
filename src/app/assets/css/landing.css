@@ -4,7 +4,7 @@
     align-items: flex-start;
 }
 
-.main__grid {
+.main-grid {
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr;
@@ -16,7 +16,7 @@
     max-width: 95%;
 }
 
-.app__name {
+.app-name {
     grid-area: logo;
     justify-self: flex-start;
     padding-left: 10px;
@@ -51,7 +51,7 @@
     left: 0;
 }
 
-.background .img__background {
+.background .img-background {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -62,13 +62,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'principal secondary';
+    grid-template-areas:
+  'principal secondary';
+
     grid-gap: 30px;
+
     background-color: var(--content-bg);
     backdrop-filter: blur(30px);
     border-radius: 12px;
     padding: 30px;
     width: 100%;
+
 }
 
 div.principal {
@@ -80,24 +84,26 @@ div.principal {
     grid-area: principal;
 }
 
-.principal .get__location {
+.principal .get-location {
     background-color: var(--search-button-bg);
     padding: 3px 15px;
     justify-self: flex-start !important;
     border-radius: 4px;
     cursor: pointer;
+
     transition: background-color 0.2s;
 }
 
-.principal .get__location span{
+.principal .get-location span{
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
     font-size: 16px;
 }
 
-.principal .get__location:hover {
+.principal .get-location:hover {
     background-color: var(--search-button-bg-hover);
+
 }
 
 div.principal .header {
@@ -116,10 +122,12 @@ div.principal .header form {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'input' 'extras';
+    grid-template-areas:
+  'input'
+  'extras';
 }
 
-div.principal .header form .input__wrapper {
+div.principal .header form .input-wrapper {
     grid-area: input;
     display: flex;
     justify-content: space-around;
@@ -143,7 +151,7 @@ div.principal .header form .snackbar {
     margin-left: 5px;;
 }
 
-div.principal .header .city__input {
+div.principal .header .cityInput {
     width: 90%;
     height: 40px;
     border: 2px solid #FFFFFF;
@@ -159,7 +167,7 @@ div.principal .header .city__input {
     color: #FFFFFF;
 }
 
-div.principal .header .search__button {
+div.principal .header .searchButton {
     color: #FFFFFF;
     background-color: var(--search-button-bg);
     height: 42px;
@@ -168,20 +176,22 @@ div.principal .header .search__button {
     border-radius: 12px;
     font-size: 22px;
     margin-left: 12px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     outline: none;
+
     transition:  background-color 0.2s;
 }
 
-div.principal .header .search__button:hover {
+div.principal .header .searchButton:hover {
     background-color: var(--search-button-bg-hover);
 }
 
 
-div.principal .header .search__results {
+div.principal .header .search-results {
     position: absolute;
     left: -2px;
     top: 50px;
@@ -192,15 +202,17 @@ div.principal .header .search__results {
     align-items: flex-start;
     flex-direction: column;
     z-index: 10;
+
     visibility: hidden;
     transition: visibility 0.1s;
+
 }
 
-.city__input:focus + div.search__results {
+.cityInput:focus + div.search-results {
     visibility: visible;
 }
 
-div.principal .header .search__results .result__tem {
+div.principal .header .search-results .result-item {
     width: 90%;
     padding: 10px;
     font-size: 10px;
@@ -212,26 +224,24 @@ div.principal .header .search__results .result__tem {
     align-items: center;
 }
 
-div.principal .header .search__results .result__item:hover {
+div.principal .header .search-results .result-item:hover {
     background-color:  rgba(255, 255, 255, 0.9);
 }
-
-.result__item:first-child {
+.result-item:first-child {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
-
-.result__item:last-child {
+.result-item:last-child {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     border-bottom: none;
 }
-div.principal .header .search__results .result-item .result__flag {
+div.principal .header .search-results .result-item .result-flag {
     max-width: 30px;
     border-radius: 4px;
     margin-right: 8px;
 }
-div.principal .header .search__results .result-item .result__city {
+div.principal .header .search-results .result-item .result-city {
     font-size: 14px;
 }
 
@@ -278,8 +288,7 @@ div.principal .result .local img {
     max-height: 14px;
 }
 
-
-div.principal .other__results {
+div.principal .other-results {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -287,14 +296,14 @@ div.principal .other__results {
     align-items: center;
 }
 
-div.principal .other__results .other {
+div.principal .other-results .other {
     font-size: 18px;
     text-align: center;
     color: var(--color-text-light);
     padding: 18px;
 }
 
-div.principal .other__results .other span {
+div.principal .other-results .other span {
     font-size: 26px;
     line-height: 40px;
 }
@@ -311,7 +320,7 @@ div.secondary {
     width: 100%;
 }
 
-div.secondary .secondary__results {
+div.secondary .secondary-results {
     grid-area: header;
     width: 100%;
     display: flex;
@@ -320,7 +329,7 @@ div.secondary .secondary__results {
     align-items: center;
 }
 
-div.secondary .secondary__results .other__secondary__results {
+div.secondary .secondary-results .other-secondary-results {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -332,20 +341,20 @@ div.secondary .secondary__results .other__secondary__results {
     padding: 18px;
 }
 
-.other__secondary__results p {
+.other-secondary-results p {
     margin-left: 10px;
 }
 
-.other__secondary__results .icon__secondary__results {
+.other-secondary-results .icon-secondary-results {
     font-size: 50px
 }
 
-.other__secondary__results .humidity{
+.other-secondary-results .humidity{
     font-size: 35px;
     color: aquamarine;
 }
 
-.secondary .landing__figure {
+.secondary .landing-figure {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -353,17 +362,17 @@ div.secondary .secondary__results .other__secondary__results {
     padding: 30px 20px;
 }
 
-.secondary .landing__figure > img {
+.secondary .landing-figure > img {
     max-width: 70%;
 }
 
-.secondary .go__maps {
+.secondary .go-maps {
     grid-area: link;
     justify-self: center;
     cursor: pointer;
 }
 
-secondary .go__maps a {
+.secondary .go-maps a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 700;
@@ -377,65 +386,19 @@ secondary .go__maps a {
     transition: all 0.2s;
 }
 
-.secondary .go__maps:hover a {
+.secondary .go-maps:hover a {
     color: var(--color-content-bg);
     background-color: var(--color-text)
 }
 
-.section__title {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #FFFFFF;
-}
-
-.weather__forecast__items {
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-}
-
-.weather__forecast__items:last-child {
-    margin-right: 0;
-}
-
-.weather__forecast__item {
-
-}
-
-.weather__forecast__item_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.weather__forecast__item_container h6 {
-    font-weight: 600;
-    font-size: 1.125rem;
-    color: #4581c5;
-}
-
-.weather__forecast__item_container p {
-    font-weight: 600;
-    font-size: 1.125rem;
-    color: #4a6fa1;
-}
-
-.weather__forecast__item_container span {
-    font-size: 1.125rem;
-    color: #4a6fa1;
-    width: 5rem;
-    text-align: center;
-}
-
 @media (max-width: 1250px) {
-    .main__grid {
+    .main-grid {
         margin-top: 10px;
         grid-template-rows: 1fr;
         grid-template-areas: 'content';
     }
 
-    .app__name {
+    .app-name {
         display: none;
     }
 
@@ -484,25 +447,25 @@ secondary .go__maps a {
         color: #FFFFFF;
     }
 
-    div.principal .other__results .other {
+    div.principal .other-results .other {
         font-size: 14px;
     }
 
-    div.principal .other__results .other span {
+    div.principal .other-results .other span {
         font-size: 16px;
     }
 
-    div.secondary .secondary__results .other__secondary__results {
+    div.secondary .secondary-results .other-secondary-results {
         flex-direction: column;
         font-size: 12px;
         text-align: center;
     }
 
-    div.secondary .secondary__results .other__secondary__results p {
+    div.secondary .secondary-results .other-secondary-results p {
         margin: 0;
     }
 
-    div.secondary .secondary__results .icon__secondary__results {
+    div.secondary .secondary-results .icon-secondary-results {
         height: 30px;
         margin-bottom: 5px;
         align-items: center;
@@ -520,13 +483,13 @@ secondary .go__maps a {
         align-items: flex-start;
     }
 
-    .background .img__background {
+    .background .img-background {
         position: fixed;
         height: 180vh;
         width: auto;
     }
 
-    .main__grid {
+    .main-grid {
         margin-top: 40px;
         display: grid;
         grid-template-columns: 1fr;
@@ -551,7 +514,7 @@ secondary .go__maps a {
         padding: 30px 15px;
     }
 
-    .app__name, .credits {
+    .app-name, .credits {
         display: flex;
         justify-self: center;
         align-self: center;
@@ -560,7 +523,7 @@ secondary .go__maps a {
         align-items: center;
     }
 
-    .credits a, .app__name{
+    .credits a, .app-name{
         padding: 0;
     }
 
@@ -579,11 +542,11 @@ secondary .go__maps a {
         font-size: 14px;
     }
 
-    div.principal .get__location span {
+    div.principal .get-location span {
         font-size: 14px;
     }
 
-    div.principal .header .city__input {
+    div.principal .header .cityInput {
         font-size: 16px;
     }
 
@@ -600,27 +563,27 @@ secondary .go__maps a {
         margin-left: 10px;
     }
 
-    div.principal .other__results {
+    div.principal .other-results {
         border-bottom: 1px solid var(--color-text-light);
     }
 
-    div.principal .other__results .other span {
+    div.principal .other-results .other span {
         font-size: 20px;
         line-height: 40px;
     }
 
-    div.secondary .secondary__results {
+    div.secondary .secondary-results {
         align-items: center;
     }
 
-    div.secondary .secondary__results .icon__secondary__results {
+    div.secondary .secondary-results .icon-secondary-results {
         height: 30px;
         margin-bottom: 5px;
         align-items: center;
         display: flex;
     }
 
-    div.secondary .secondary__results .other__secondary__results p{
+    div.secondary .secondary-results .other-secondary-results p{
         margin-left: 0;
     }
 

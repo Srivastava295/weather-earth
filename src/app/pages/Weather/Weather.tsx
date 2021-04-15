@@ -9,7 +9,7 @@ import IWeatherModel from '../../models/weather';
 import { useWeatherSlice } from '../../slices/weather';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  weatherForecastSelector,
+  // weatherForecastSelector,
   weatherSelector,
 } from '../../selectors/weatherSelector';
 import '../../assets/css/landing.css';
@@ -53,7 +53,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   const [results, setResults] = useState<SearchData | any>();
   const { actions } = useWeatherSlice();
   const weather = useSelector(weatherSelector);
-  const weatherForecast = useSelector(weatherForecastSelector);
+  // const weatherForecast = useSelector(weatherForecastSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -209,10 +209,10 @@ const Weather: React.FC<IWeatherCardProps> = () => {
     <>
       <div id="main">
         <div className="background">
-          <img src={background} alt="Wallpaper" className="img__background" />
+          <img src={background} alt="Wallpaper" className="img-background" />
         </div>
-        <div className="main__grid">
-          <div className="app__name">
+        <div className="main-grid">
+          <div className="app-name">
             <h3 style={{ color: 'white' }}>Weather Earth</h3>
           </div>
           <div className="content">
@@ -220,21 +220,23 @@ const Weather: React.FC<IWeatherCardProps> = () => {
               <div className="header">
                 <form onSubmit={handleSearch}>
                   <div className="extras">
-                    <div className="get__location">
-                      <span className="get__location__button">My Location</span>
+                    <div className="get-location">
+                      <span className="get-location-button">My Location</span>
                     </div>
                   </div>
-                  <div className="input__wrapper">
+
+                  <div className="input-wrapper">
                     <input
-                      placeholder="Search for location..."
+                      placeholder="Search city..."
                       type="text"
                       name="city"
                       value={place}
-                      onChange={event => handlePlaceChange(event)}
-                      className="city__input"
+                      onChange={handlePlaceChange}
+                      className="cityInput"
                       autoComplete="off"
                     />
-                    <div className="search__results">
+
+                    <div className="search-results">
                       {results &&
                         results.list.map(result => {
                           const country = result.sys.country;
@@ -267,18 +269,20 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                           );
                         })}
                     </div>
-                    <button type="submit" className="search__button">
+
+                    <button type="submit" className="searchButton">
                       <RiSearchLine />
                     </button>
                   </div>
                 </form>
               </div>
               <div className="result">
-                <img src={icon} alt="Climate" className="weather__icon" />
+                <img src={icon} alt="Climate" className="weather-icon" />
                 <h1 className="temperature">
                   {weather?.main?.temp.toFixed(0)}
                   <span>ºC</span>
                 </h1>
+
                 <span className="description">
                   {capitalizeString(
                     String(
@@ -288,6 +292,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     ),
                   )}
                 </span>
+
                 <span className="local">
                   {`${weather?.name}, ${
                     weather && weather.sys ? weather?.sys.country : 'N/A'
@@ -296,14 +301,15 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   {weather && weather.sys && weather?.sys.country !== '-' && (
                     <img
                       src={`https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/${weather?.sys.country.toLowerCase()}.png`}
-                      alt="Country"
+                      alt="country"
                     />
                   )}
                 </span>
               </div>
-              <div className="other__results">
+
+              <div className="other-results">
                 <div className="other">
-                  Temperature: <br />
+                  Temp: <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -312,7 +318,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </span>
                 </div>
                 <div className="other">
-                  Temperature Min: <br />
+                  Temp min: <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -321,7 +327,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </span>
                 </div>
                 <div className="other">
-                  Temperature Max: <br />
+                  Temp max: <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -329,12 +335,19 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     ºC
                   </span>
                 </div>
+                <div className="other">
+                  Pressure: <br />
+                  <span>
+                    {weather && weather.main && weather?.main.pressure} hPa
+                  </span>
+                </div>
               </div>
             </div>
+
             <div className="secondary">
-              <div className="secondary__results">
-                <div className="other__secondary__results">
-                  <div className="icon__secondary__results humidity">
+              <div className="secondary-results">
+                <div className="other-secondary-results">
+                  <div className="icon-secondary-results humidity">
                     <RiDropFill />
                   </div>
                   <p>
@@ -342,8 +355,9 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     {weather?.main?.humidity}%
                   </p>
                 </div>
-                <div className="other__secondary__results">
-                  <div className="icon__secondary__results">
+
+                <div className="other-secondary-results">
+                  <div className="icon-secondary-results">
                     <WiStrongWind />
                   </div>
                   <p>
@@ -354,8 +368,9 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     m/s
                   </p>
                 </div>
-                <div className="other__secondary__results">
-                  <div className="icon__secondary__results">
+
+                <div className="other-secondary-results">
+                  <div className="icon-secondary-results">
                     <WiCloudy />
                   </div>
                   <p>
@@ -364,31 +379,37 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </p>
                 </div>
               </div>
-              <div className="landing__figure">
+              <div className="landing-figure">
                 <img src={LandingImg} alt="Landing" />
               </div>
+              {weather?.name !== '-' && (
+                <div className="go-maps">
+                  <a
+                    href={`https://www.google.com/maps/@${
+                      weather && weather.coord && weather?.coord.lat
+                    },${weather && weather.coord && weather.coord.lon},12z`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Google Maps
+                  </a>
+                </div>
+              )}
             </div>
-            <div className="section__title">Extended Forecast</div>
-            <hr />
-            <div className="weather__forecast__items">
-              {weatherForecast &&
-                weatherForecast.map((item, i) => {
-                  return (
-                    <div className="weather__forecast__item" key={i}>
-                      <div className="weather__forecast__item_container">
-                        <h6>{item.day}</h6>
-                        <p>{item.weather}</p>
-                        <span>{item.temp ? item.temp.temp_max : 'N/A'}ºC</span>
-                        <small>/</small>
-                        <span>{item.temp ? item.temp.temp_min : 'N/A'}ºC</span>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
+          </div>{' '}
+          {/*content*/}
+          <div className="credits">
+            by&nbsp;
+            <a
+              href="https://github.com/Srivastava295"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Srivastava Bodakunti</strong>
+            </a>
           </div>
         </div>
-      </div>
+      </div>{' '}
     </>
   );
 };

@@ -12,7 +12,9 @@ const weatherWithLocationApi = (action: PayloadAction<any>) => {
 
 const weatherForecastApi = (action: PayloadAction<any>) => {
   const location = action.payload;
-  return axiosApi.get(`/forecast/daily?q=${location}&appid=${appId}`);
+  return axiosApi.get(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${appId}`,
+  );
 };
 
 const weatherWithCoordinatesApi = (
