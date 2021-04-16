@@ -26,6 +26,7 @@ import nightBg from '../../assets/images/night_bg.jpg';
 import { capitalizeString } from '../../utils/utils';
 import { axiosApi } from '../../utils/axios-utils/axios-api';
 import { appId } from '../../constants/app-constants';
+import moment from 'moment';
 
 interface IWeatherCardProps {
   weather?: IWeatherModel;
@@ -284,6 +285,9 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                 </form>
               </div>
               <div className="result">
+                <span className="dateTime">
+                  {weather?.main ? moment().format('ddd DD, h:mm A') : ''}
+                </span>
                 <img src={icon} alt="Climate" className="weather-icon" />
                 <h1 className="temperature">
                   {weather?.main?.temp.toFixed(0)}
