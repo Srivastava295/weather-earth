@@ -358,7 +358,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     <RiDropFill />
                   </div>
                   <p>
-                    Humidity: <br />
+                    Humidity <br />
                     {weather?.main?.humidity}%
                   </p>
                 </div>
@@ -368,7 +368,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     <WiStrongWind />
                   </div>
                   <p>
-                    Wind: <br />
+                    Wind <br />
                     {weather &&
                       weather.wind &&
                       weather?.wind.speed.toFixed(1)}{' '}
@@ -381,7 +381,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     <WiCloudy />
                   </div>
                   <p>
-                    Clouds: <br />
+                    Clouds <br />
                     {weather && weather.clouds && weather.clouds.all}%
                   </p>
                 </div>

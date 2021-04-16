@@ -23,12 +23,13 @@ export function configureAppStore() {
     }),
   ];
 
-  const store = configureStore({
+  return configureStore({
     reducer: createReducer(),
-    middleware: [...getDefaultMiddleware(), ...middlewares],
+    middleware: [
+      ...getDefaultMiddleware({ immutableCheck: false }),
+      ...middlewares,
+    ],
     devTools: process.env.NODE_ENV !== 'production',
     enhancers,
   });
-
-  return store;
 }
