@@ -316,7 +316,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
               <div className="other-results">
                 <div className="other">
-                  Temp: <br />
+                  Temp <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -325,7 +325,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </span>
                 </div>
                 <div className="other">
-                  Temp min: <br />
+                  Temp min <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -334,7 +334,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </span>
                 </div>
                 <div className="other">
-                  Temp max: <br />
+                  Temp max <br />
                   <span>
                     {weather &&
                       weather.main &&
@@ -343,7 +343,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </span>
                 </div>
                 <div className="other">
-                  Pressure: <br />
+                  Pressure <br />
                   <span>
                     {weather && weather.main && weather?.main.pressure} hPa
                   </span>
