@@ -6,7 +6,9 @@ Weather Earth<br/>
 <!-- Subtitle/Description -->
 <h4>Weather Earth is an application responsible for showing climatic data
 (current temperature, humidity, wind speed, etc.) for a given city in real 
-time. These data were obtained through open-weather api.</h4>
+time. These data were obtained through open-weather api. This app uses 
+<a href='https://github.com/react-boilerplate/react-boilerplate-cra-template'>
+react-boilerplate-cra-template</a> template. </h4>
 </div>
 
 ---
