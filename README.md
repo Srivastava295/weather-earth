@@ -1,33 +1,56 @@
-# Weather Earth
-
-<div>
-    This app is written using <strong>React</strong>, 
-    <strong>Redux Toolkit</strong> and <strong>Typescript</strong>.
-    The template used is 
-    <a href='https://github.com/react-boilerplate/react-boilerplate-cra-template'>
-        react-boilerplate-cra-template
-    </a>
-    <p>It uses <a href='https://openweathermap.org/'>Open Weather</a> api for weather data.</p>
+<div  align="center">
+<!-- Top Image and Title -->
+<h1>
+Weather Earth<br/>
+</h1>
+<!-- Subtitle/Description -->
+<h4>Weather Earth is an application responsible for showing climatic data
+(current temperature, humidity, wind speed, etc.) for a given city in real 
+time. These data were obtained through open-weather api.</h4>
 </div>
-<br />
 
 ---
 
-## Install & Start
+### 🔭 Technologies
 
-⚠️ Using [Yarn Package Manager](https://yarnpkg.com) is recommended over `npm`.
+- [NodeJS](https://nodejs.org)
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Redux-Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://github.com/axios/axios)
 
-Clone this project. Install the dependencies.
+---
 
-```shell
-cd <app-root-dir>
-yarn install
+### ℹ️: How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
+From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/Srivastava295/weather-earth.git
+
+# Go into the repository
+$ cd weather-earth
+
+# Install dependencies for the frontend and run the server
+$ yarn install
+$ yarn start
+
 ```
 
-Run the app.
+---
 
-```shell
-yarn start
-```
+### ✏️: Author
 
-The app runs on port 3000 by default and can be checked at http://localhost:3000
+<table>
+  <tr>
+    <td align="center">
+        <a href="https://github.com/Srivastava295">
+            <img src="https://avatars.githubusercontent.com/u/12626383?v=4" width="100px;" alt="Profile"/>
+            <br />
+            <sub><b>Srivastava Bodakunti</b></sub>
+        </a><br />
+        <a href="https://github.com/Srivastava295" title="Code">💻</a></td>
+  <tr>
+</table>
