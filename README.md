@@ -37,6 +37,9 @@ $ cd weather-earth
 
 # Install dependencies for the frontend and run the server
 $ yarn install
+
+In <app-dir>/src/constants/app-constants.ts give your open weather api key as app-id
+
 $ yarn start
 
 ```

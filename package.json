@@ -1,6 +1,5 @@
 {
   "name": "weather-earth",
-  "homepage": "https://srivastava295.github.io/weather-earth/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,7 +27,6 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react-hooks": "4.1.0",
     "fontfaceobserver": "2.1.0",
-    "gh-pages": "3.1.0",
     "husky": "4.2.5",
     "i18next": "19.7.0",
     "i18next-browser-languagedetector": "6.0.1",
@@ -83,9 +81,7 @@
     "lint:css": "stylelint src/**/*.css",
     "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
     "prettify": "prettier --write",
-    "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js"
   },
   "browserslist": {
     "production": [
