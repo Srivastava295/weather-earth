@@ -97,7 +97,9 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   let LandingImg;
 
   const weatherMain =
-    weather && weather?.weather ? weather?.weather[0].main : 'N/A';
+    weather && weather?.weather
+      ? weather?.weather[0].main
+      : 'Please choose your location or allow this website to access your location.';
 
   switch (weatherMain) {
     case 'Clear':
@@ -143,7 +145,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   let icon = initialIcon;
 
   const weatherIcon =
-    weather && weather?.weather ? weather?.weather[0].icon : 'N/A';
+    weather && weather?.weather ? weather?.weather[0].icon : '';
 
   switch (weatherIcon) {
     case '01d':
@@ -288,10 +290,14 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                 <span className="dateTime">
                   {weather?.main ? moment().format('ddd DD, h:mm A') : ''}
                 </span>
-                <img src={icon} alt="Climate" className="weather-icon" />
+                {weather?.main ? (
+                  <img src={icon} alt="Climate" className="weather-icon" />
+                ) : null}
                 <h1 className="temperature">
                   {weather?.main?.temp.toFixed(0)}
-                  <span>ºC</span>
+                  <span>
+                    {weather?.main ? 'ºC' : 'Pick a city to see weather data!'}
+                  </span>
                 </h1>
 
                 <span className="description">
@@ -299,14 +305,14 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     String(
                       weather && weather.weather
                         ? weather?.weather[0].description
-                        : 'N/A',
+                        : ':(',
                     ),
                   )}
                 </span>
 
                 <span className="local">
-                  {`${weather?.name}, ${
-                    weather && weather.sys ? weather?.sys.country : 'N/A'
+                  {`${weather && weather.name ? `${weather.name},` : ''} ${
+                    weather && weather.sys ? weather?.sys.country : ''
                   }`}
                   &nbsp;&nbsp;
                   {weather && weather.sys && weather?.sys.country !== '-' && (
@@ -325,7 +331,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     {weather &&
                       weather.main &&
                       weather?.main.feels_like.toFixed(1)}{' '}
-                    ºC
+                    {weather && weather.main ? 'ºC' : '-'}
                   </span>
                 </div>
                 <div className="other">
@@ -334,7 +340,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     {weather &&
                       weather.main &&
                       weather?.main.temp_min.toFixed(1)}{' '}
-                    ºC
+                    {weather && weather.main ? 'ºC' : '-'}
                   </span>
                 </div>
                 <div className="other">
@@ -343,13 +349,14 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     {weather &&
                       weather.main &&
                       weather?.main.temp_max.toFixed(1)}{' '}
-                    ºC
+                    {weather && weather.main ? 'ºC' : '-'}
                   </span>
                 </div>
                 <div className="other">
                   Pressure <br />
                   <span>
-                    {weather && weather.main && weather?.main.pressure} hPa
+                    {weather && weather.main && weather?.main.pressure}
+                    {weather && weather.main ? ' hPa' : '-'}
                   </span>
                 </div>
               </div>
@@ -363,7 +370,8 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </div>
                   <p>
                     Humidity <br />
-                    {weather?.main?.humidity}%
+                    {weather?.main?.humidity}
+                    {weather && weather.main ? '%' : ' -'}
                   </p>
                 </div>
 
@@ -376,7 +384,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                     {weather &&
                       weather.wind &&
                       weather?.wind.speed.toFixed(1)}{' '}
-                    m/s
+                    {weather && weather.main ? 'm/s' : ' -'}
                   </p>
                 </div>
 
@@ -386,7 +394,8 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                   </div>
                   <p>
                     Clouds <br />
-                    {weather && weather.clouds && weather.clouds.all}%
+                    {weather && weather.clouds && weather.clouds.all}
+                    {weather && weather.main ? '%' : ' -'}
                   </p>
                 </div>
               </div>
