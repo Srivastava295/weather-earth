@@ -99,9 +99,12 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   const handlePlaceChange = event => {
     setPlace(event.currentTarget.value);
     const query = `/find?q=${event.currentTarget.value.trim()}&type=like&sort=population&cnt=30&appid=${appId}`;
-    axiosApi.get(query).then(response => {
-      setResults(response.data);
-    });
+    axiosApi
+      .get(query)
+      .then(response => {
+        setResults(response.data);
+      })
+      .catch(() => {});
   };
 
   const handleSearch = event => {
