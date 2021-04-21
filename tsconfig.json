@@ -18,5 +18,6 @@
     "jsx": "react",
     "baseUrl": "./src"
   },
+  "typeRoots": ["node_modules/@types", "src/typings"],
   "include": ["src"]
 }

@@ -22,11 +22,16 @@ import cloudyFigure from '../../assets/images/landing_svgs/cloudy.svg';
 import initialIcon from '../../assets/images/icons/04.svg';
 import dayBg from '../../assets/images/day_bg.png';
 import nightBg from '../../assets/images/night_bg.jpg';
-
+import Thunderstorm from '../../assets/audio/Thunderstorm.mp3';
+import RainFalling from '../../assets/audio/RainFalling.mp3';
+import SpookyWind from '../../assets/audio/SpookyWind.mp3';
+import Snow from '../../assets/audio/Snow.mp3';
+import BirdsInForest from '../../assets/audio/BirdsInForest.mp3';
 import { capitalizeString } from '../../utils/utils';
 import { axiosApi } from '../../utils/axios-utils/axios-api';
 import { appId } from '../../constants/app-constants';
 import moment from 'moment';
+import PlayAudio from './PlayAudio';
 
 interface IWeatherCardProps {
   weather?: IWeatherModel;
@@ -95,6 +100,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   };
 
   let LandingImg;
+  let soundUrl;
 
   const weatherMain =
     weather && weather?.weather
@@ -104,6 +110,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   switch (weatherMain) {
     case 'Clear':
       LandingImg = sunFigure;
+      soundUrl = BirdsInForest;
       break;
 
     case 'Clouds':
@@ -112,14 +119,17 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
     case 'Haze':
       LandingImg = cloudyFigure;
+      soundUrl = SpookyWind;
       break;
 
     case 'Thunderstorm':
       LandingImg = thunderFigure;
+      soundUrl = Thunderstorm;
       break;
 
     case 'Rain':
       LandingImg = rainFigure;
+      soundUrl = RainFalling;
       break;
 
     case 'Drizzle':
@@ -128,10 +138,12 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
     case 'Snow':
       LandingImg = snowFigure;
+      soundUrl = Snow;
       break;
 
     default:
       LandingImg = initialFigure;
+      soundUrl = '';
       break;
   }
 
@@ -287,6 +299,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                 </form>
               </div>
               <div className="result">
+                <PlayAudio soundUrl={soundUrl} />
                 <span className="dateTime">
                   {weather?.main ? moment().format('ddd DD, h:mm A') : ''}
                 </span>
