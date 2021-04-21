@@ -9,6 +9,7 @@ import IWeatherModel from '../../models/weather';
 import { useWeatherSlice } from '../../slices/weather';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  loadingSelector,
   // weatherForecastSelector,
   weatherSelector,
 } from '../../selectors/weatherSelector';
@@ -32,6 +33,14 @@ import { axiosApi } from '../../utils/axios-utils/axios-api';
 import { appId } from '../../constants/app-constants';
 import moment from 'moment';
 import PlayAudio from './PlayAudio';
+import { Backdrop, CircularProgress, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
 
 interface IWeatherCardProps {
   weather?: IWeatherModel;
@@ -59,6 +68,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
   const [results, setResults] = useState<SearchData | any>();
   const { actions } = useWeatherSlice();
   const weather = useSelector(weatherSelector);
+  const loading = useSelector(loadingSelector);
   // const weatherForecast = useSelector(weatherForecastSelector);
   const dispatch = useDispatch();
 
@@ -223,6 +233,8 @@ const Weather: React.FC<IWeatherCardProps> = () => {
     case 'n':
       background = nightBg;
   }
+
+  const classes = useStyles();
 
   return (
     <>
@@ -429,6 +441,10 @@ const Weather: React.FC<IWeatherCardProps> = () => {
                 </div>
               )}
             </div>
+            {/*// @ts-ignore*/}
+            <Backdrop className={classes.backdrop} open={loading}>
+              <CircularProgress color="inherit" />
+            </Backdrop>
           </div>{' '}
           {/*content*/}
           <div className="credits">
