@@ -28,6 +28,7 @@ import RainFalling from '../../assets/audio/RainFalling.mp3';
 import SpookyWind from '../../assets/audio/SpookyWind.mp3';
 import Snow from '../../assets/audio/Snow.mp3';
 import BirdsInForest from '../../assets/audio/BirdsInForest.mp3';
+import Clouds from '../../assets/audio/Clouds.mp3';
 import { capitalizeString } from '../../utils/utils';
 import { axiosApi } from '../../utils/axios-utils/axios-api';
 import { appId } from '../../constants/app-constants';
@@ -125,6 +126,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
     case 'Clouds':
       LandingImg = sunFigure;
+      soundUrl = Clouds;
       break;
 
     case 'Haze':
@@ -144,6 +146,7 @@ const Weather: React.FC<IWeatherCardProps> = () => {
 
     case 'Drizzle':
       LandingImg = rainFigure;
+      soundUrl = RainFalling;
       break;
 
     case 'Snow':
