@@ -3,7 +3,7 @@ import { PathLike } from 'fs';
 
 export const apiConfig = {
   returnRejectedPromiseOnError: true,
-  withCredentials: true,
+  withCredentials: false,
   timeout: 30000,
   baseURL: 'https://api.openweathermap.org/data/2.5',
   /*headers: {
